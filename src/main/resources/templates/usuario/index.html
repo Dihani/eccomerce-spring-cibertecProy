@@ -23,7 +23,7 @@
 <body>
 
 	<!-- Navigation - traemos el header de template_usuario.html -->
-	<div th:include="usuario/template_usuario.html::header">
+	<div th:insert="/usuario/template_usuario.html::header">
 		
 	</div>
 	
@@ -45,9 +45,21 @@
 					<img class="card-img-top" th:src="@{/imagenes/{img} (img=${producto.imagen})}" alt="">
 					<div class="card-body">
 						<p class="card-text" th:text="${producto.nombre}"></p>
+						<p class="card-text" th:text="${producto.precio}"></p>
 					</div>
 					<div class="card-footer">
-						<a href="productohome.html" class="btn btn-success">Ver producto</a>
+						<a th:href="@{/productohome/{id} (id=${producto.idProducto})}" class="btn btn-dark">Ver producto</a>
+						
+						<form th:action="@{/carro}" method="POST">
+							<!-- campo oculto tipo Input, nos muestra el id del prod -->
+							<input type="hidden" th:value="${producto.idProducto}" name="idProducto" >
+																					
+								<input type="number" id="cantidad" name="cantidad" autocomplete="off"
+											min="1" max="10" value="1" style="margin-bottom: 20px; margin-top:20px">																	
+							
+							<button type="submit" class="btn btn-success" >Agregar al carrito </button>		
+
+						</form>
 					</div>
 				</div>
 			</div>
@@ -61,7 +73,7 @@
 	<!-- /.container -->
 
 	<!-- Footer - traemos el header de template_usuario.html -->
-	<div th:include="usuario/template_usuario.html::footer">
+	<div th:insert="/usuario/template_usuario.html::footer">
 		
 	</div>
 
