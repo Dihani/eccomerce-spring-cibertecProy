@@ -12,7 +12,7 @@
 	<artifactId>proyecto-ecommerce-Cib</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>proyecto-ecommerce-Cib</name>
-	<description>Proyecto en Spring Boot para Cibertec</description>
+	<description>Proyecto en Spring Boot para Cibertec - v1.0</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
